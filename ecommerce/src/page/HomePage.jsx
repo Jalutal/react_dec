@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../component/Header";
 import { productSortedByPrice, products } from "../utils/products-utils";
+import Sidebar from "../component/Sidebar";
 
 function Home() {
   const kitchenProducts = products.filter((product) => {
@@ -14,9 +15,10 @@ function Home() {
   const cheapestProducts = productSortedByPrice.slice(0, 3);
 
   return (
-    <> //Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement.
+    <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
       <Header pageTitle="HomePage" />
-      <main>
+      <main>      
+      <Sidebar currentPage={"HomePage"}/>         
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
 
@@ -31,7 +33,7 @@ function Home() {
               </article>
             );
           })}
-        </section>
+        </section>        
         <section>
           <h3>Produits les moins chers : </h3>
           {cheapestProducts.map((product) => {

@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import Header from "../component/Header";
 import { productSortedByPrice } from "../utils/products-utils";
+import Sidebar from "../component/Sidebar";
 
 function ProductsPage() {
   return (
-    <> //Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement.
+    <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
       <Header pageTitle="Page de liste de produits" />
       <main>
+       
         <h1>Les produits les moins chers pour les grosses pinces : </h1>
-
+        <Sidebar currentPage={"ProductsPage"}/>
         {productSortedByPrice.map((product) => {
           return (
             <article>

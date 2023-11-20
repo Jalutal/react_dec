@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
 import { products } from "../utils/products-utils";
+import Sidebar from "../component/Sidebar";
 
 function ProductPage() {
   const { id } = useParams();
@@ -18,9 +19,10 @@ function ProductPage() {
   });
 
   return (
-    <> //Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement.
+    <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
       <Header pageTitle="Page produit" />
       <main>
+        <Sidebar currentPage={"ProductPage"}/> 
         {productFound ? (
           <article>
             <h1>Detail du produit</h1>
