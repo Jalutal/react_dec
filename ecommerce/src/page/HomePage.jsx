@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Header from "../component/Header";
+import { productSortedByPrice, products } from "../utils/products-utils";
 
 function Home() {
-  
   const kitchenProducts = products.filter((product) => {
     return product.category === "cuisine";
   });
@@ -10,12 +10,12 @@ function Home() {
   kitchenProducts.sort((product1, product2) => new Date(product1.publicationDate) - new Date(product2.publicationDate));
 
   const lastPublishedKitchenProducts = kitchenProducts.slice(-3);
-  
+
   const cheapestProducts = productSortedByPrice.slice(0, 3);
 
   return (
-    <>
-      <Header />
+    <> //Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement.
+      <Header pageTitle="HomePage" />
       <main>
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
@@ -25,7 +25,6 @@ function Home() {
               <article>
                 <h3>{product.title}</h3>
                 <p>{product.price}</p>
-                // Ici utilisation des `` afin de passer le product.id en variable pour l'url
                 <Link to={`/products/${product.id}`}>
                   <button>Voir le produit</button>
                 </Link>
@@ -40,7 +39,6 @@ function Home() {
               <article>
                 <h3>{product.title}</h3>
                 <p>{product.price}</p>
-                // Idem à cet endroit
                 <Link to={`/products/${product.id}`}>
                   <button>Voir le produit</button>
                 </Link>

@@ -9,8 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
-        // on place id en variable afin de le rendre dynamique au changement de page (:id)
-        <Route path="/products/:id" element={<ProductPage />} />  
+        <Route path="/products/:id" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   );
