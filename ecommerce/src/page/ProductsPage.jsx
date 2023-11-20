@@ -10,7 +10,8 @@ function ProductsPage() {
       <main>
        
         <h1>Les produits les moins chers pour les grosses pinces : </h1>
-        <Sidebar currentPage={"ProductsPage"}/>
+        <div className="sideBar">
+        <Sidebar currentPage={"ProductsPage"}/></div>
         {productSortedByPrice.map((product) => {
           return (
             <article>

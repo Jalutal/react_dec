@@ -17,8 +17,9 @@ function Home() {
   return (
     <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
       <Header pageTitle="HomePage" />
-      <main>      
-      <Sidebar currentPage={"HomePage"}/>         
+      <main>
+        <div className="sideBar">      
+      <Sidebar currentPage={"HomePage"} className="side"/>  </div>       
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
 

@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom'
 
-function Sidebar ({currentPage}){
+function Sidebar ({currentPage, text}){
     return(
         <>
         <div className='sidebar'>   
@@ -9,7 +9,7 @@ function Sidebar ({currentPage}){
                 <p>LE TITRE DU SITE</p>                    
             }
             {currentPage =="ProductPage" && 
-                <p>vous consulez le produit...</p>
+                <p>{`Vous consultez le produit ${text}`}</p>
             }
             {currentPage =="ProductsPage" &&
                 <p>vous consultez La liste des produits</p>

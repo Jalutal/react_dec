@@ -22,7 +22,8 @@ function ProductPage() {
     <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
       <Header pageTitle="Page produit" />
       <main>
-        <Sidebar currentPage={"ProductPage"}/> 
+      <div className="sideBar">
+        <Sidebar currentPage={"ProductPage"} text={productFound.title}/> </div>
         {productFound ? (
           <article>
             <h1>Detail du produit</h1>
