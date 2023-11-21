@@ -1,4 +1,4 @@
-export const products = [
+export  const products = [
   {
     id: 1,
     title: "micro-onde",
@@ -82,3 +82,5 @@ export const products = [
 ];
 
 export const productSortedByPrice = products.sort((product1, product2) => product1.price - product2.price);
+
+export const pageTitle = "Le titre du site";

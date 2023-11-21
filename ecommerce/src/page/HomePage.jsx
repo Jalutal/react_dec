@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
 import Header from "../component/Header";
-import { productSortedByPrice, products } from "../utils/products-utils";
+import { pageTitle, productSortedByPrice, products } from "../utils/product-utils";
 import Sidebar from "../component/Sidebar";
+import ProductCard from "../component/ProductCard";
 
 function Home() {
+  
+
   const kitchenProducts = products.filter((product) => {
     return product.category === "cuisine";
   });
@@ -15,37 +17,24 @@ function Home() {
   const cheapestProducts = productSortedByPrice.slice(0, 3);
 
   return (
-    <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
-      <Header pageTitle="HomePage" />
+    <>
+      <Header pageTitle={"Home"}/>
+      <Sidebar textToDisplay={pageTitle}/>
       <main>
-        <div className="sideBar">      
-      <Sidebar currentPage={"HomePage"} className="side"/>  </div>       
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
 
           {lastPublishedKitchenProducts.map((product) => {
             return (
-              <article>
-                <h3>{product.title}</h3>
-                <p>{product.price}</p>
-                <Link to={`/products/${product.id}`}>
-                  <button>Voir le produit</button>
-                </Link>
-              </article>
+              <ProductCard product = {product}/>
             );
           })}
-        </section>        
+        </section>
         <section>
           <h3>Produits les moins chers : </h3>
           {cheapestProducts.map((product) => {
             return (
-              <article>
-                <h3>{product.title}</h3>
-                <p>{product.price}</p>
-                <Link to={`/products/${product.id}`}>
-                  <button>Voir le produit</button>
-                </Link>
-              </article>
+              <ProductCard product = {product}/>
             );
           })}
         </section>

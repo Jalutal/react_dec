@@ -1,26 +1,19 @@
-import { Link } from "react-router-dom";
 import Header from "../component/Header";
-import { productSortedByPrice } from "../utils/products-utils";
+import { productSortedByPrice } from "../utils/product-utils";
 import Sidebar from "../component/Sidebar";
+import ProductCard from "../component/ProductCard";
 
 function ProductsPage() {
   return (
-    <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
-      <Header pageTitle="Page de liste de produits" />
+    <>
+      <Header pageTitle={"Tous les produits"} />
+      <Sidebar textToDisplay={"Vous consultez la liste des produits"}/>
       <main>
-       
         <h1>Les produits les moins chers pour les grosses pinces : </h1>
-        <div className="sideBar">
-        <Sidebar currentPage={"ProductsPage"}/></div>
-        {productSortedByPrice.map((product) => {
+
+        {productSortedByPrice.map((currentProductInLoop) => {
           return (
-            <article>
-              <h2>{product.title}</h2>
-              <p>{product.price} euros</p>
-              <Link to={`/products/${product.id}`}>
-                <button>Voir le produit</button>
-              </Link>
-            </article>
+           <ProductCard product = {currentProductInLoop}/>
           );
         })}
       </main>

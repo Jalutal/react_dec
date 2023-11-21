@@ -1,17 +1,11 @@
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
-import { products } from "../utils/products-utils";
+import { products } from "../utils/product-utils";
 import Sidebar from "../component/Sidebar";
 
 function ProductPage() {
   const { id } = useParams();
 
-  // permet de convertir le type de id (chaine de caractères)
-  // car récupérée dans l'url
-  // vers un integer
-  // il vaut mieux faire la conversion soit même
-  // et comparer avec triple égal (strict)
-  // plutôt que laisser JS faire la conversion et comparer avec double égal
   const idInt = parseInt(id);
 
   const productFound = products.find((product) => {
@@ -19,11 +13,10 @@ function ProductPage() {
   });
 
   return (
-    <> {/*//Le pageTitle du header contient un nom différent des autres pages. C'est lui qui sera affiché à chaque chargement. */}
-      <Header pageTitle="Page produit" />
+    <>
+      <Header pageTitle={"Produit"}/>
+      <Sidebar textToDisplay={"Vous consultez le produit " + String(productFound.title)}/>
       <main>
-      <div className="sideBar">
-        <Sidebar currentPage={"ProductPage"} text={productFound.title}/> </div>
         {productFound ? (
           <article>
             <h1>Detail du produit</h1>

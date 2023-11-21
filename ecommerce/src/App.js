@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./page/HomePage";
 import ProductsPage from "./page/ProductsPage";
 import ProductPage from "./page/ProductPage";
-import "./App.css";
 
 function App() {
   return (
@@ -12,8 +11,8 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 }
 
-export default App;
+  export default App;
