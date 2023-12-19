@@ -22,7 +22,7 @@ function App() {
         <Route path="/admin/" element={<DashboardPage />} />
         <Route path="/admin/coworkings" element={<AdminCoworkingsPage />} />
         <Route path="/admin/coworkings/create" element={<AdminCoworkingCreate />} />
-        <Route path="/admin/coworkings/update" element={<AdminCoworkingUpdate />} />
+        <Route path="/admin/coworkings/update:id" element={<AdminCoworkingUpdate />} />
       </Routes>
     </BrowserRouter>
   );
